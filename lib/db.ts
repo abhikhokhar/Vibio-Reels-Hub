@@ -23,13 +23,15 @@ export async function connectToDatabase() {
         }
         cached.promise = mongoose.connect(MONGODB_URI, opts)
             .then(() => mongoose.connection)
+            console.log("MongoDB connected")
     }
 
     try {
         cached.conn = await cached.promise;
     } catch (error) {
         cached.promise = null;
-        throw error;
+        console.log("MongoDB connection error", error)
+        
     }
 
     return cached.conn;
