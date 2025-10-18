@@ -26,6 +26,8 @@ export async function GET(){
     }
 }
 
+
+
 export async function POST(request: NextRequest){
     try{
         const session = await getServerSession(authOptions);
@@ -37,14 +39,16 @@ export async function POST(request: NextRequest){
             });
         }
         await connectToDatabase();
+        console.log("Connected to database");
         const body: IVideo = await request.json();
-        if (!body.title || !body.description || !body.videoUrl || !body.thumbnailUrl){
+        if (!body.title || !body.description || !body.videoUrl){
             return NextResponse.json({
                 error:"Missing required fields"
             },{
                 status: 400
             });
         }
+        console.log("Creating video with data:", body);
         const videoData = {
             ...body,
             controls: body?.controls ?? true,
@@ -54,13 +58,18 @@ export async function POST(request: NextRequest){
                 quality: body?.transformation?.quality ?? 100,
             }
         }
+
         const newVideo = await Video.create(videoData);
+        console.log("New video created:", newVideo);
         return NextResponse.json(newVideo)
     }catch(error){
-        return NextResponse.json({
-            error:" Failed to create video",
-        },{
-            status: 500
-        })
-    }
+    console.error("Video creation error:", error);
+    return NextResponse.json({
+        error: "Failed to create video",
+        details: error instanceof Error ? error.message : String(error)
+    },{
+        status: 500
+    });
+}
+
 }
