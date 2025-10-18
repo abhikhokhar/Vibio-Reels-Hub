@@ -28,16 +28,38 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <NotificationContext.Provider value={{ showNotification }}>
-      {children}
-      {notification && (
-        <div className="toast toast-bottom toast-end z-[100]">
-          <div className={`alert ${getAlertClass(notification.type)}`}>
-            <span>{notification.message}</span>
-          </div>
-        </div>
-      )}
-    </NotificationContext.Provider>
+   <NotificationContext.Provider value={{ showNotification }}>
+  {children}
+  {notification && (
+    <div className="fixed bottom-6 right-6 z-[100] flex items-center space-x-3 bg-background shadow-xl border border-purple-600 rounded-xl px-5 py-3 animate-fade-in-up">
+      <div
+        className={`h-2 w-2 rounded-full ${
+          notification.type === "success"
+            ? "bg-green-500"
+            : notification.type === "error"
+            ? "bg-red-500"
+            : notification.type === "warning"
+            ? "bg-yellow-500"
+            : "bg-blue-500"
+        }`}
+      ></div>
+      <span
+        className={`text-lg font-semibold ${
+          notification.type === "error"
+            ? "text-red-600"
+            : notification.type === "success"
+            ? "text-green-600"
+            : notification.type === "warning"
+            ? "text-yellow-600"
+            : "text-blue-600"
+        }`}
+      >
+        {notification.message}
+      </span>
+    </div>
+  )}
+</NotificationContext.Provider>
+
   );
 }
 

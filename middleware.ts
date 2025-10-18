@@ -1,29 +1,41 @@
-import { withAuth } from "next-auth/middleware"
-import { NextResponse } from "next/server"
+import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
 export default withAuth(
-    function middleware(){
-        return NextResponse.next();
-    },
-    {
-        callbacks:{
-            authorized({req, token}){
-                const {pathname} = req.nextUrl;
-                if (pathname.startsWith("/api/auth/login") ||
-                    pathname === "/login" ||
-                    pathname === "/register")
-                    return true;
-                if (pathname === "/" || pathname.startsWith("/api/video"))
-                    return true;
-                return !!token;
-            }
-        }
-    }
-)
+  function middleware(req) {
+    const { pathname } = req.nextUrl;
 
-export const config ={
-    matcher: [
-        /* Match all request paths except for the ones starting with: api, _next, static files, and favicon.ico */
-        "/((?!api|_next/static|_next/image|favicon.ico).*)"
-    ]
-}
+    // ✅ Allow public routes (login, register, API auth)
+    if (
+      pathname.startsWith("/api/auth") ||
+      pathname === "/login" ||
+      pathname === "/register"
+    ) {
+      return NextResponse.next();
+    }
+
+    // ✅ Check if the user is authenticated
+    const token = req.nextauth?.token;
+
+    if (!token) {
+      // ✅ Redirect to login if no session
+      const loginUrl = new URL("/login", req.url);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    // ✅ Allow access if authenticated
+    return NextResponse.next();
+  },
+  {
+    callbacks: {
+      authorized: () => true, // we'll handle auth manually above
+    },
+  }
+);
+
+export const config = {
+  matcher: [
+    // Match all routes except Next.js internals & static assets
+    "/((?!_next/static|_next/image|favicon.ico).*)",
+  ],
+};
