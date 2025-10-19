@@ -55,7 +55,7 @@ export default function Header() {
             className="w-8 h-8 text-purple-600 mr-2"
           >
             <path d="M15 10.5V6a2 2 0 0 0-2-2H5A2 2 0 0 0 3 6v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4.5l6 4.5V6l-6 4.5z" />
-          </svg><span className="text-gray-200">Vib</span><span className="text-purple-600">io</span>
+          </svg><span className="text-white">Vib</span><span className="text-purple-500">io</span>
         </Link>
 
         {/* Right: Desktop Menu (hidden on mobile) */}
@@ -67,7 +67,7 @@ export default function Header() {
                 className="flex items-center gap-1 text-lg font-semibold transition-colors"
                 onClick={() => showNotification("Upload your video 🎥", "info")}
               >
-                <Upload className="w-4 h-4 text-purple-600" /> Upload
+                <Upload className="w-4 h-4 text-purple-600" /> <span className="text-white">Upload</span>
               </Link>
 
               <div className="relative">
@@ -76,7 +76,7 @@ export default function Header() {
                   className="flex items-center gap-2 px-3 py-2 bg-base-200 rounded-xl hover:bg-base-100 transition"
                 >
                   <User className="w-5 h-5 text-purple-600" />
-                  <span className="text-lg font-semibold truncate max-w-[120px]">
+                  <span className="text-lg text-white font-semibold truncate max-w-[120px]">
                     {session?.user?.email?.split("@")[0]}
                   </span>
                 </button>

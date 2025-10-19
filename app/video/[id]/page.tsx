@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 async function getVideo(id: string): Promise<IVideo | null> {
-  const res = await fetch(`http://localhost:3000/api/video/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/video/${id}`, {
     cache: "no-store",
     headers: {
       Cookie: (await import("next/headers")).cookies().toString(),
