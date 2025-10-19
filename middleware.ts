@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export default withAuth(
   function middleware(req) {
-    const { pathname } = req.nextUrl;
+    const { pathname, origin } = req.nextUrl;
 
     // ✅ Allow public routes (login, register, API auth)
     if (
@@ -14,21 +14,21 @@ export default withAuth(
       return NextResponse.next();
     }
 
-    // ✅ Check if the user is authenticated
+    // ✅ Check if user has a valid token
     const token = req.nextauth?.token;
 
     if (!token) {
-      // ✅ Redirect to login if no session
-      const loginUrl = new URL("/login", req.url);
+      // ✅ Always build absolute redirect URL safely
+      const loginUrl = new URL("/login", origin);
+      loginUrl.searchParams.set("callbackUrl", req.nextUrl.pathname); // optional: return after login
       return NextResponse.redirect(loginUrl);
     }
 
-    // ✅ Allow access if authenticated
     return NextResponse.next();
   },
   {
     callbacks: {
-      authorized: () => true, // we'll handle auth manually above
+      authorized: () => true, // we'll handle manually
     },
   }
 );
