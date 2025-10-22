@@ -25,7 +25,7 @@ function Loginpage() {
     if (result?.error) {
       setError("Invalid email or password"); 
     } else {
-      setLogin("Login Successful");
+      setLogin("Login Successful! click to go to Home Page");
       router.push("/"); 
     }
   };
