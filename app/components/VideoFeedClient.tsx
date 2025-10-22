@@ -11,7 +11,6 @@ interface Props {
 }
 
 export default function VideoFeedClient({ videos }: Props) {
-  // ✅ use the hook INSIDE the component
   const { showNotification } = useNotification();
 
   return (

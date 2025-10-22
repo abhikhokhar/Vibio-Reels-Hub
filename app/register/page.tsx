@@ -47,6 +47,7 @@ function RegisterPage() {
       <form className="flex flex-col gap-3 bg-black/80 p-8 w-[450px] rounded-2xl font-sans" onSubmit={handleSubmit}>
         {/* Email */}
         <div className="flex flex-col">
+          <h1 className="text-[#f1f1f1] font-semibold flex justify-center text-3xl">Create Account</h1>
           <label className="text-[#f1f1f1] font-semibold">Email</label>
         </div>
         <div className="border border-[#333] bg-[#2b2b2b] rounded-xl h-[50px] flex items-center pl-3 transition-all duration-200 ease-in-out focus-within:border-[#2d79f3]">
@@ -130,7 +131,7 @@ function RegisterPage() {
 
         {/* Submit Button */}
         <button className="mt-5 mb-2 bg-[#2d79f3] text-white text-[15px] font-medium rounded-xl h-[50px] w-full cursor-pointer hover:bg-[#2260c5] transition">
-          Sign In
+          Sign Up
         </button>
 
         {/* Sign Up */}
