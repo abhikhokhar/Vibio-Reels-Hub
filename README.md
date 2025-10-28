@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 Vibio — Next.js Video Upload Platform
 
-## Getting Started
+Vibio is a modern video-sharing web application built with **Next.js**, **NextAuth.js**, **MongoDB**, and **ImageKit**.  
+Users can **sign up, log in securely**, upload videos, and view only the content they’ve uploaded — all within a smooth and responsive UI.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🔐 **Authentication with NextAuth.js**
+  - Secure login & registration using credentials.
+  - JWT-based session management.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ☁️ **Video Uploads via ImageKit**
+  - Optimized video storage and CDN delivery.
+  - Supports various video formats.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🧠 **User-Specific Dashboard**
+  - Each user can view, manage, and upload their own videos only.
+  - Auth-protected routes handled with `middleware.ts`.
 
-## Learn More
+- 🧩 **Modern Stack**
+  - **Next.js App Router** architecture.
+  - **MongoDB** for data persistence.
+  - **Tailwind CSS** for modern UI styling.
 
-To learn more about Next.js, take a look at the following resources:
+- ⚡ **Deployed on Vercel**
+  - Fast global performance with secure HTTPS endpoints.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🖼️ Screenshots
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img width="1353" height="610" alt="image" src="https://github.com/user-attachments/assets/b19df4a9-4d36-4a11-9dcc-ddb203e9deea" />
+<img width="1366" height="629" alt="image" src="https://github.com/user-attachments/assets/63e206fb-b246-49cc-9269-aebaef771914" />
+
+
+---
+
+## 🧰 Tech Stack
+
+| Category | Technology |
+|-----------|-------------|
+| **Framework** | [Next.js 14 (App Router)](https://nextjs.org/) |
+| **Authentication** | [NextAuth.js](https://next-auth.js.org/) |
+| **Database** | [MongoDB](https://www.mongodb.com/) |
+| **Storage** | [ImageKit.io](https://imagekit.io/) |
+| **Themes** | [Next-Themes] |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
+| **Deployment** | [Vercel](https://vercel.com/) |
+
+---
+
+
+## Live Demo
+[Vibio](https://vibio.abhikhokhar.tech/)
+
+## Author
+
+Developed by [Abhi Khokhar](https://abhikhokhar.tech)
+
