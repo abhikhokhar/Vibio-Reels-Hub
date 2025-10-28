@@ -107,7 +107,7 @@ function Loginpage() {
         )}
 
         {/* Submit Button */}
-        <button className="mt-5 mb-2 bg-[#2d79f3] text-white text-[15px] font-medium rounded-xl h-[50px] w-full cursor-pointer hover:bg-[#2260c5] transition">
+        <button className="mt-5 mb-2 bg-purple-700 text-white text-[15px] font-medium rounded-xl h-[50px] w-full cursor-pointer hover:bg-purple-600 transition">
           Sign In
         </button>
 
