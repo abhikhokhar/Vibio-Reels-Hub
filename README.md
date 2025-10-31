@@ -32,8 +32,7 @@ Users can **sign up, log in securely**, upload videos, and view only the content
 ## 🖼️ Screenshots
 
 
-
-<img width="1353" height="610" alt="image" src="https://github.com/user-attachments/assets/b19df4a9-4d36-4a11-9dcc-ddb203e9deea" />
+<img width="1366" height="602" alt="image" src="https://github.com/user-attachments/assets/f7615453-5758-4391-8800-bd0d5dd45783" />
 <img width="1366" height="629" alt="image" src="https://github.com/user-attachments/assets/63e206fb-b246-49cc-9269-aebaef771914" />
 
 
